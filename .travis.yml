@@ -1,3 +1,13 @@
-language: ruby
-    rvm:
+
+
+
+
+     rvm:
     - 2.2.1
+    # changes from here
+    services:
+    - memcached
+    env:
+    - DB=test/integration/books.sqlite && MCACHE=localhost:11211
+    # changes to here
+    before_script:

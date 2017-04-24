@@ -14,6 +14,13 @@ describe DataAccess do
     @book4 = Book.new("4444", "title4","author2", 22.2, "genre2", 22)
   end
 
+
+ describe "ISBN Search" do
+       before(:each) do
+          dBase = Sequel.sqlite(ENV['DB'] )
+          @sqlp = SQLitePersistence.new dBase
+       end
+
   describe '#isbnSearch' do
      context "required book is not in the remote cache" do
          it "should get it from the database and put it in both caches" do
